@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@900&display=swap');
+
+.lobster { 
+    font-family: 'Dancing Script', cursive !important;  
+}
+
+.artImage {
+    width: 80%;
+}
+
+.header {
+    margin-left: 10%;
+}

@@ -1,0 +1,16 @@
+.input { 
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+    background-color:#f3f3f4 !important;
+}
+
+.input:focus {
+    background-color: #fff !important;
+    border-color: rgba(234,76,137,0.4) !important;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1) !important;
+}
+
+
+.label {
+    font-style: bold !important;
+}
