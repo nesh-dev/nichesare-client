@@ -6,14 +6,14 @@ import { useMutation } from "@apollo/react-hooks";
 import { REGISTER_USER } from "../graphQl/mutations/Authentication/registration";
 import { InputField } from "../components/customInputs/index";
 import { SidePanel } from "../components/sidePanel/index";
-import { toErrorMap } from "../utils/fieldErrors";
+import { GoogleLoginButton } from "../components/GoogleAuth/index"
 import styles from "../styles/Register.module.css";
 import * as yup from 'yup'
 
 
 export default function register() {
 
-  const [registerUser, {data, error}] = useMutation(REGISTER_USER, {errorPolicy: 'all'});
+  const [registerUser] = useMutation(REGISTER_USER, {errorPolicy: 'all'});
   const router = useRouter();
 
   let schema = yup.object({
@@ -25,7 +25,7 @@ export default function register() {
   return (
     <Flex flexDirection="row" h="99vh">
       <Flex w="25%" flexDirection="column" bg="#f2d184" color="#866118">
-        <SidePanel />
+        <SidePanel page={register}/>
       </Flex>
 
       <Flex w="75%" flexDirection="column" alignItems="center">
@@ -46,23 +46,17 @@ export default function register() {
           >
             Sign Up To NicheShare
           </Heading>
+          
+          <Box w="70%" mb="20px">
+            <GoogleLoginButton />
+          </Box>
+         
 
-          <Button
-            w="70%"
-            mb="20px"
-            className={styles.googleButton}
-          >
-            <img
-              src="https://img.icons8.com/ios/50/000000/google-logo.png"
-              className={styles.googleIcon}
-            />
-            Sign Up with Google
-          </Button>
           <hr className={styles.divider} />
           <Box w="70%">
             <Formik
               initialValues={{ name: "", email: "", password: "" }}
-              onSubmit={async (values, { setFieldError,  setSubmitting, isSubmitting }) => {
+              onSubmit={async (values, { setFieldError }) => {
               
                   const response = await registerUser({
                     variables: { ...values }

@@ -1,0 +1,14 @@
+.googleIcon {
+    object-fit: contain;
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.googleButton{
+    border: none; 
+    border-radius: 8px;
+    background-color: #4285f4 !important;
+    color: #fff !important; 
+    
+}

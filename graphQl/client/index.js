@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
-const appLink = `${process.env.REACT_APP_LINK}`;
+const appLink = `${process.env.NEXT_PUBLIC_API_URL}`;
 // console.log(appLink, '>>>>>>>')
 
 const client = new ApolloClient({
