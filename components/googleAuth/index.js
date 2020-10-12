@@ -1,12 +1,17 @@
 import React from "react";
 import { useGoogleLogin } from "react-google-login";
 import { useMutation } from "@apollo/react-hooks";
+import { useRouter } from "next/router";
+
 import { GOOGLE_AUTH  } from "../../graphQl/mutations/Authentication/googleAuth";
 import { Button } from "@chakra-ui/core";
 import styles from "./googleAuth.module.css";
 
+
 export function GoogleLoginButton(props) {
+  const { buttonText } = props
   const [ authGoogle, {data} ] = useMutation(GOOGLE_AUTH);
+  const router = useRouter();
   const onSuccess = async (response) => {
     
     if(response){
@@ -17,6 +22,7 @@ export function GoogleLoginButton(props) {
         console.log(loginResponse.data, 'KKKKKK')
         const { token } = loginResponse.data.authGoogle
         localStorage.setItem("token", token)
+        router.push("/");
       }
 
       if(loginResponse.errors){
@@ -27,7 +33,6 @@ export function GoogleLoginButton(props) {
   };
 
 
-  
   const onFailure = response => {
     console.log('login failed',response)
   }
@@ -42,12 +47,12 @@ export function GoogleLoginButton(props) {
 
   return (
     <>
-      <Button className={styles.googleButton} onClick={signIn}>
+      <Button  w="70%" mb="20px" className={styles.googleButton} onClick={signIn}>
         <img
           src="https://img.icons8.com/ios/50/000000/google-logo.png"
           className={styles.googleIcon}
         />
-        Sign Up with Google
+        {buttonText}
       </Button>
     </>
   );

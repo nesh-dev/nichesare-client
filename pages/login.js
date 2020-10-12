@@ -6,6 +6,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { LOGIN_USER } from "../graphQl/mutations/Authentication/login";
 import { InputField } from "../components/customInputs/index";
 import { SidePanel } from "../components/sidePanel/index";
+import { GoogleLoginButton } from "../components/GoogleAuth/index"
 import styles from "../styles/Register.module.css";
 import * as yup from "yup";
 
@@ -52,13 +53,8 @@ export default function login() {
             Sign In To NicheShare
           </Heading>
 
-          <Button w="70%" mb="20px" className={styles.googleButton}>
-            <img
-              src="https://img.icons8.com/ios/50/000000/google-logo.png"
-              className={styles.googleIcon}
-            />
-            Sign In with Google
-          </Button>
+          <GoogleLoginButton buttonText={"Sign In with Google"}/>
+
           <hr className={styles.divider} />
           <Box w="70%">
             <Formik

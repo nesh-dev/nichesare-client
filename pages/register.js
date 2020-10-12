@@ -46,10 +46,9 @@ export default function register() {
           >
             Sign Up To NicheShare
           </Heading>
-          
-          <Box w="70%" mb="20px">
-            <GoogleLoginButton />
-          </Box>
+       
+            <GoogleLoginButton buttonText={"Sign Up with Google"}/>
+       
          
 
           <hr className={styles.divider} />
